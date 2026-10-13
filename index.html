@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="孙家豪 · 信息管理与信息系统 · 个人简历">
+<title>孙家豪 · 个人简历</title>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  } catch (e) {}
+})();
+</script>
+<style>
+:root{
+  --primary:#6366f1;
+  --primary-strong:#4f46e5;
+  --primary-soft:rgba(99,102,241,.12);
+  --accent:#06b6d4;
+  --accent-strong:#0891b2;
+  --gold:#f59e0b;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --text-2:#475569;
+  --text-3:#94a3b8;
+  --border:#e5e7eb;
+  --border-2:#eef0f5;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+  --shadow-md:0 8px 24px rgba(15,23,42,.08);
+  --shadow-lg:0 18px 48px rgba(79,70,229,.16);
+  --ring:rgba(99,102,241,.42);
+  --grad:linear-gradient(135deg,#6366f1 0%,#7c3aed 52%,#06b6d4 100%);
+  --navbar-h:68px;
+}
+html[data-theme="dark"]{
+  --primary:#818cf8;
+  --primary-strong:#a5b4fc;
+  --primary-soft:rgba(129,140,248,.16);
+  --accent:#22d3ee;
+  --accent-strong:#67e8f9;
+  --gold:#fbbf24;
+  --bg:#0b1020;
+  --card:#141c31;
+  --text:#e2e8f0;
+  --text-2:#9aa7bd;
+  --text-3:#64748b;
+  --border:#232c44;
+  --border-2:#1b2438;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+  --shadow-md:0 8px 24px rgba(0,0,0,.45);
+  --shadow-lg:0 18px 48px rgba(0,0,0,.5);
+  --ring:rgba(129,140,248,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navbar-h) + 16px)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1100px 480px at 85% -8%,var(--primary-soft),transparent 60%),
+    radial-gradient(900px 460px at -8% 16%,rgba(6,182,212,.09),transparent 55%);
+  background-attachment:fixed;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .25s ease,color .25s ease;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+.icon{display:inline-flex;align-items:center;justify-content:center;flex:none}
+.icon svg{display:block}
+
+/* ---------- Navbar ---------- */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--navbar-h);
+  background:color-mix(in srgb,var(--card) 78%,transparent);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease,box-shadow .2s ease,background-color .25s ease;
+}
+.navbar.scrolled{border-bottom-color:var(--border-2);box-shadow:var(--shadow-sm)}
+.navbar-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700}
+.brand-badge{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:var(--grad);color:#fff;font-size:17px;box-shadow:var(--shadow-md);
+}
+.brand-name{font-size:16px;letter-spacing:.2px}
+.brand-sub{font-weight:500;color:var(--text-3);font-size:13px;margin-left:4px}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{
+  padding:7px 13px;border-radius:9px;font-size:14px;font-weight:500;color:var(--text-2);
+  transition:color .15s ease,background-color .15s ease;
+}
+.nav-links a:hover{color:var(--primary-strong);background:var(--primary-soft)}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  border:1px solid var(--border);color:var(--text-2);background:var(--card);
+  transition:transform .15s ease,border-color .15s ease,color .15s ease,box-shadow .15s ease;
+}
+.icon-btn:hover{color:var(--primary-strong);border-color:var(--ring);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;
+  font-size:14px;font-weight:600;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease;
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:var(--shadow-md)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-ghost{border:1px solid var(--border);color:var(--text-2);background:var(--card)}
+.btn-ghost:hover{color:var(--primary-strong);border-color:var(--ring)}
+.hamburger{display:none}
+.mobile-menu{display:none}
+
+/* ---------- Sections ---------- */
+section{padding:72px 0}
+.hero{padding-top:calc(var(--navbar-h) + 64px);padding-bottom:64px;text-align:center}
+.section-head{max-width:640px;margin:0 auto 44px;text-align:center}
+.eyebrow{
+  display:inline-block;padding:5px 13px;border-radius:999px;font-size:12px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--primary-strong);
+  background:var(--primary-soft);margin-bottom:14px;
+}
+h2{font-size:30px;font-weight:800;letter-spacing:-.3px}
+.section-head p{color:var(--text-2);margin-top:8px;font-size:15px}
+
+/* ---------- Hero ---------- */
+.avatar{
+  width:88px;height:88px;border-radius:26px;margin:0 auto 22px;display:grid;place-items:center;
+  background:var(--grad);color:#fff;font-size:40px;font-weight:800;
+  box-shadow:var(--shadow-lg),0 0 0 8px var(--primary-soft);
+}
+.hero h1{font-size:44px;font-weight:900;letter-spacing:-.5px;line-height:1.15}
+.hero .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{margin-top:10px;font-size:17px;color:var(--text-2);font-weight:500}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.hero .summary{max-width:660px;margin:22px auto 0;color:var(--text-2);font-size:15.5px}
+.badges{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:26px}
+.badge{
+  padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;
+  background:var(--card);border:1px solid var(--border);color:var(--text-2);
+  box-shadow:var(--shadow-sm);transition:transform .15s ease,border-color .15s ease,color .15s ease;
+}
+.badge:hover{transform:translateY(-2px);border-color:var(--ring);color:var(--primary-strong)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.hero-actions .btn{padding:12px 20px}
+
+/* ---------- Highlights ---------- */
+.highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat-card{
+  background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:26px 22px;text-align:center;box-shadow:var(--shadow-sm);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.stat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--ring)}
+.stat-num{font-size:40px;font-weight:900;letter-spacing:-1px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+.stat-label{font-size:14px;font-weight:600;margin-top:8px;color:var(--text)}
+.stat-sub{font-size:12.5px;color:var(--text-3);margin-top:4px}
+
+/* ---------- Tabs ---------- */
+.tablist{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;padding:5px;background:var(--card);border:1px solid var(--border);border-radius:14px;max-width:max-content;margin-left:auto;margin-right:auto}
+.tab{
+  padding:9px 18px;border-radius:10px;font-size:14px;font-weight:600;color:var(--text-2);
+  transition:background-color .15s ease,color .15s ease,box-shadow .15s ease;
+}
+.tab:hover{color:var(--primary-strong)}
+.tab[aria-selected="true"]{background:var(--grad);color:#fff;box-shadow:var(--shadow-md)}
+.tab:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+
+/* ---------- Timeline / Experience ---------- */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--primary),var(--accent));opacity:.25;border-radius:2px}
+.exp-item{position:relative;margin-bottom:30px}
+.exp-item:last-child{margin-bottom:0}
+.exp-dot{position:absolute;left:-28px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--card);border:2px solid var(--primary);display:grid;place-items:center}
+.exp-dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--primary)}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+.exp-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.exp-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:6px}
+.exp-role{font-size:18px;font-weight:700}
+.exp-org{color:var(--text-2);font-size:14px}
+.exp-period{margin-left:auto;font-size:13px;color:var(--text-3);font-weight:600;white-space:nowrap}
+.exp-tag{padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;color:var(--primary-strong);background:var(--primary-soft)}
+.exp-bullets{margin-top:12px;list-style:none}
+.exp-bullets li{position:relative;padding-left:22px;color:var(--text-2);font-size:14.5px;margin-bottom:8px}
+.exp-bullets li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
+
+/* ---------- Projects ---------- */
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project-card{
+  background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--ring)}
+.project-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.project-title{font-size:19px;font-weight:700}
+.project-cat{padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;color:var(--accent-strong);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.project-stack{display:flex;flex-wrap:wrap;gap:7px}
+.stack-tag{font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px;background:var(--primary-soft);color:var(--primary-strong)}
+.project-points{list-style:none;display:flex;flex-direction:column;gap:8px;flex:1}
+.project-points li{font-size:14px;color:var(--text-2);position:relative;padding-left:20px}
+.project-points li::before{content:"▸";position:absolute;left:2px;color:var(--primary);font-weight:700}
+.project-link{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--primary-strong)}
+.project-link:hover{text-decoration:underline}
+
+/* ---------- Skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+.skill-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.skill-group{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.skill-group .icon{width:38px;height:38px;border-radius:11px;background:var(--grad);color:#fff}
+.skill-group h3{font-size:17px;font-weight:700}
+.skill-row{margin-bottom:15px}
+.skill-row:last-child{margin-bottom:0}
+.skill-row-top{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:7px}
+.skill-row-top .lv{color:var(--text-3)}
+.bar{height:8px;border-radius:999px;background:var(--border-2);overflow:hidden}
+.bar>span{display:block;height:100%;width:0;border-radius:999px;background:var(--grad);transition:width .9s cubic-bezier(.22,.61,.36,1)}
+
+/* ---------- Education ---------- */
+.edu-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:var(--shadow-sm)}
+.edu-school{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.edu-school .icon{width:46px;height:46px;border-radius:13px;background:var(--grad);color:#fff}
+.edu-school h3{font-size:19px;font-weight:700}
+.edu-school .sub{font-size:13px;color:var(--text-3)}
+.edu-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.edu-meta span{padding:5px 12px;border-radius:8px;font-size:12.5px;font-weight:600;background:var(--primary-soft);color:var(--primary-strong)}
+.edu-list{list-style:none}
+.edu-list li{position:relative;padding-left:22px;color:var(--text-2);font-size:14.5px;margin-bottom:9px}
+.edu-list li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:var(--shadow-sm)}
+.cert-card h3{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;margin-bottom:16px}
+.cert-card h3 .icon{width:38px;height:38px;border-radius:11px;background:var(--grad);color:#fff}
+.cert-item{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px dashed var(--border-2)}
+.cert-item:last-child{border-bottom:none}
+.cert-item .icon{color:var(--gold);margin-top:2px}
+.cert-item .t{font-weight:600;font-size:14.5px}
+.cert-item .d{font-size:13px;color:var(--text-3);margin-top:2px}
+.muted-note{font-size:13px;color:var(--text-3);margin-top:12px;font-style:italic}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--border-2);padding:34px 0}
+.footer-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;color:var(--text-3);font-size:13.5px}
+.footer-inner b{color:var(--text-2)}
+
+/* ---------- Back to top ---------- */
+.back-top{
+  position:fixed;right:26px;bottom:26px;z-index:90;width:46px;height:46px;border-radius:13px;
+  background:var(--grad);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow-md);
+  opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+}
+.back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-top:hover{transform:translateY(-3px)}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);z-index:200;
+  background:var(--text);color:var(--bg);padding:11px 20px;border-radius:12px;font-size:14px;font-weight:600;
+  opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s ease;box-shadow:var(--shadow-lg);
+}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:920px){
+  .highlight-grid{grid-template-columns:repeat(2,1fr)}
+  .project-grid,.skill-grid,.edu-grid{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  section{padding:56px 0}
+  h2{font-size:26px}
+  .hero h1{font-size:36px}
+  .nav-links{display:none}
+  .hamburger{display:grid}
+  .btn-ghost.print-btn{display:none}
+  .mobile-menu{display:block;position:absolute;top:var(--navbar-h);left:0;right:0;background:var(--card);border-bottom:1px solid var(--border-2);box-shadow:var(--shadow-md);padding:10px 16px 16px}
+  .mobile-menu[hidden]{display:none}
+  .mobile-menu a{display:block;padding:12px 10px;border-radius:10px;font-weight:600;color:var(--text-2)}
+  .mobile-menu a:hover{background:var(--primary-soft);color:var(--primary-strong)}
+  .highlight-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .stat-num{font-size:30px}
+  .exp-period{margin-left:0}
+}
+
+/* ---------- Motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+  .bar>span{transition:none}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{scroll-behavior:auto}
+  body{background:#fff !important;color:#111 !important}
+  .navbar,.back-top,.toast,.tablist,.no-print,.mobile-menu,.hamburger,.icon-btn,.hero-actions .btn-ghost{display:none !important}
+  main{padding-top:0 !important}
+  .hero{padding-top:0 !important;text-align:left}
+  .hero .summary,.hero .role{color:#333 !important}
+  .badge,.stat-card,.exp-card,.project-card,.skill-card,.edu-card,.cert-card{background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important}
+  section{padding:18px 0 !important;break-inside:avoid}
+  .tabpanel{display:block !important}
+  .project-card{display:flex !important}
+  .stat-num,.hero .grad{color:#111 !important;-webkit-text-fill-color:#111 !important;background:none !important}
+  .bar>span{background:#6366f1 !important}
+  .reveal{opacity:1 !important;transform:none !important}
+  a{text-decoration:none !important;color:inherit !important}
+}
+</style>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="#hero" class="brand">
+      <span class="brand-badge">孙</span>
+      <span class="brand-name">孙家豪<span class="brand-sub">· 个人简历</span></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#hero">摘要</a>
+      <a href="#highlights">亮点</a>
+      <a href="#experience">经历</a>
+      <a href="#projects">项目</a>
+      <a href="#skills">技能</a>
+      <a href="#education">教育</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="切换深浅色模式" title="切换深浅色模式"></button>
+      <button class="btn btn-ghost print-btn no-print" id="printBtn" title="打印或导出 PDF">
+        <span class="icon" id="printIcon"></span>打印 / PDF
+      </button>
+      <button class="icon-btn hamburger no-print" id="menuToggle" aria-label="菜单" aria-expanded="false"></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#hero">摘要</a>
+    <a href="#highlights">亮点</a>
+    <a href="#experience">经历</a>
+    <a href="#projects">项目</a>
+    <a href="#skills">技能</a>
+    <a href="#education">教育</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="hero" class="hero"><div class="container" id="heroRoot"></div></section>
+  <section id="highlights"><div class="container" id="highlightsRoot"></div></section>
+  <section id="experience"><div class="container" id="experienceRoot"></div></section>
+  <section id="projects"><div class="container" id="projectsRoot"></div></section>
+  <section id="skills"><div class="container" id="skillsRoot"></div></section>
+  <section id="education"><div class="container" id="educationRoot"></div></section>
+</main>
+
+<footer><div class="container footer-inner" id="footerRoot"></div></footer>
+
+<button class="back-top no-print" id="backTop" aria-label="返回顶部"></button>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+'use strict';
+
+/* ============ 简历数据 ============ */
+const resume = {
+  name: "孙家豪",
+  nameEn: "Sun Jiahao",
+  role: "信息管理与信息系统 · 本科在读",
+  direction: "数据 / AI / 产品运营 方向实习",
+  location: "南京",
+  contact: {
+    phone: "18014111653",
+    email: { user: "1293725470", domain: "qq.com" },
+    github: ""   // 待补，留空自动隐藏
+  },
+  summary: "河海大学信息管理与信息系统专业大一新生，大一即考取阿里官方「AI 训练师」认证，兼具 Python 技术功底与班级组织管理经验。结果导向、学习力强，可快速上手数据分析、AI 产品与运营类实习工作。",
+  badges: ["Python", "数据分析", "Prompt 工程", "AI 训练", "数据标注", "爬虫", "办公自动化", "Office 办公"],
+  highlights: [
+    { num: "10+", label: "场班级文体活动组织", sub: "策划执行全程统筹" },
+    { num: "30%", label: "班级活动参与率提升", sub: "组织动员成效显著" },
+    { num: "90%", label: "自动化效率提升", sub: "2 小时 → 5 分钟" },
+    { num: "1", label: "项阿里官方 AI 认证", sub: "大一即考取" }
+  ],
+  experience: [
+    {
+      tab: "校园经历",
+      items: [{
+        role: "班级文体委员",
+        org: "河海大学 · 经济与管理学院",
+        period: "2026.09 – 至今",
+        tag: "组织统筹",
+        bullets: [
+          "统筹班级文体活动策划与执行，累计组织 10+ 场文体活动，班级活动参与率提升 30%",
+          "协调班委、同学与学院资源，制定活动排期、场地与预算方案，保障活动按期高质量落地",
+          "在大型集体活动中负责动员、现场调度与反馈复盘，锻炼沟通协调与组织统筹能力"
+        ]
+      }]
+    },
+    {
+      tab: "实践经历",
+      items: [{
+        role: "AI 应用实践（自主项目）",
+        org: "个人项目 · 阿里 AI 训练师课程",
+        period: "待补",
+        tag: "AI 落地",
+        bullets: [
+          "系统学习并考取阿里官方「AI 训练师」认证，掌握数据标注、模型训练、Prompt 工程与 AI 产品落地方法论",
+          "基于大模型完成信息处理与内容生成场景实践，设计并调优提示词，形成可复用模板库",
+          "将 Python 与 AI 工具结合，搭建数据清洗、分析与自动化工作流，验证技术综合应用能力"
+        ]
+      }]
+    }
+  ],
+  projects: [
+    {
+      title: "Python 自动化工具",
+      category: "Python",
+      stack: ["Python", "文件处理", "脚本自动化"],
+      points: [
+        "场景：针对日常重复性事务，使用 Python 编写自动化脚本（文件批量处理 / 数据抓取等）",
+        "行动：独立完成需求分析、代码编写与调试，封装为可复用的工具脚本",
+        "结果：将原本耗时 2 小时的手工操作压缩至 5 分钟内完成，效率提升 90%+"
+      ],
+      link: ""
+    },
+    {
+      title: "AI 应用实践",
+      category: "AI",
+      stack: ["Prompt 工程", "数据标注", "大模型应用"],
+      points: [
+        "场景：结合阿里 AI 训练师所学，探索大模型在信息处理与内容生成场景的应用",
+        "行动：完成数据标注、Prompt 设计与效果调优，形成可复用的提示词模板",
+        "结果：产出完整实践记录 / 作品集，体现 AI 产品落地能力"
+      ],
+      link: ""
+    }
+  ],
+  skills: [
+    { group: "编程语言", icon: "code", items: [
+      { name: "Python", level: 78 }
+    ]},
+    { group: "AI 工具", icon: "sparkle", items: [
+      { name: "Prompt 工程", level: 72 },
+      { name: "数据标注", level: 78 },
+      { name: "大模型应用", level: 68 }
+    ]},
+    { group: "办公软件", icon: "briefcase", items: [
+      { name: "Word 文档", level: 85 },
+      { name: "PPT 演示", level: 85 },
+      { name: "Excel 分析", level: 70 }
+    ]},
+    { group: "数据分析", icon: "chart", items: [
+      { name: "数据清洗", level: 60 },
+      { name: "数据可视化", level: 58 },
+      { name: "统计分析", level: 60 }
+    ]}
+  ],
+  education: {
+    school: "河海大学",
+    major: "信息管理与信息系统（本科）",
+    period: "2026.09 – 预计 2030.06",
+    notes: [
+      "主修课程：管理学原理、Python 程序设计、数据结构、数据库原理、统计学、运筹学、管理信息系统等",
+      "主动考取阿里官方认证「AI 训练师」证书，系统掌握数据标注、模型训练、提示词工程与 AI 产品落地方法论",
+      "担任班级文体委员，统筹班级文体活动策划与落地"
+    ]
+  },
+  certificates: [
+    { t: "阿里官方认证 · AI 训练师证书", d: "AI 模型训练 / 数据标注方向" }
+  ],
+  certNote: "其他奖项、竞赛、语言成绩等持续补充中"
+};
+
+/* ============ 图标 ============ */
+const ICONS = {
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>',
+  github: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
+  copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>',
+  moon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+  printer: '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+  arrowUp: '<polyline points="18 15 12 9 6 15"/>',
+  menu: '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>',
+  close: '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  mapPin: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  briefcase: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+  graduation: '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>',
+  award: '<circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/>',
+  code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+  sparkle: '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/>',
+  chart: '<line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>',
+  link: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
+  check: '<polyline points="20 6 9 17 4 12"/>'
+};
+
+function iconEl(name, size = 18) {
+  const s = document.createElement('span');
+  s.className = 'icon';
+  s.innerHTML = '<svg viewBox="0 0 24 24" width="' + size + '" height="' + size + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
+  return s;
+}
+
+/* ============ DOM 工具 ============ */
+function h(tag, attrs, ...children) {
+  const el = document.createElement(tag);
+  if (attrs) {
+    for (const k in attrs) {
+      const v = attrs[k];
+      if (k === 'class') el.className = v;
+      else if (k === 'text') el.textContent = v;
+      else if (k === 'html') el.innerHTML = v;
+      else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2), v);
+      else if (v === true) el.setAttribute(k, '');
+      else if (v !== false && v !== null && v !== undefined) el.setAttribute(k, v);
+    }
+  }
+  (children || []).flat().forEach(c => {
+    if (c === null || c === undefined || c === false) return;
+    el.appendChild(typeof c === 'string' || typeof c === 'number' ? document.createTextNode(c) : c);
+  });
+  return el;
+}
+const emailStr = () => resume.contact.email.user + '@' + resume.contact.email.domain;
+
+/* ============ 渲染 ============ */
+function renderHero() {
+  const root = document.getElementById('heroRoot');
+  const email = emailStr();
+  const gh = resume.contact.github;
+
+  root.appendChild(h('div', { class: 'avatar', text: '孙' }));
+
+  root.appendChild(h('div', null,
+    h('p', { class: 'eyebrow', text: '你好，我是' }),
+    h('h1', null, h('span', { class: 'grad', text: resume.name })),
+    h('div', { class: 'role', text: resume.role }),
+    h('div', { class: 'meta' },
+      h('span', { class: 'badge' }, iconEl('mapPin', 14), ' ', resume.location),
+      h('span', { class: 'badge' }, iconEl('target', 14), ' ', resume.direction),
+      h('span', { class: 'badge' }, iconEl('award', 14), ' 阿里 AI 训练师认证')
+    )
+  ));
+
+  root.appendChild(h('p', { class: 'summary', text: resume.summary }));
+
+  const badges = h('div', { class: 'badges' });
+  resume.badges.forEach(b => badges.appendChild(h('span', { class: 'badge', text: b })));
+  root.appendChild(badges);
+
+  const actions = h('div', { class: 'hero-actions' });
+  actions.appendChild(h('a', { class: 'btn btn-primary', href: 'tel:' + resume.contact.phone },
+    iconEl('phone', 17), ' ', resume.contact.phone));
+  const mailBtn = h('button', { class: 'btn btn-ghost', 'data-copy': email },
+    iconEl('mail', 17), ' ', email);
+  actions.appendChild(mailBtn);
+  if (gh) actions.appendChild(h('a', { class: 'btn btn-ghost', href: gh, target: '_blank', rel: 'noopener' },
+    iconEl('github', 17), ' GitHub'));
+  actions.appendChild(h('button', { class: 'btn btn-ghost no-print', id: 'heroPrint' },
+    iconEl('printer', 17), ' 打印 / 导出 PDF'));
+  root.appendChild(actions);
+}
+
+function sectionHead(en, zh, desc) {
+  return h('div', { class: 'section-head reveal' },
+    h('span', { class: 'eyebrow', text: en }),
+    h('h2', { text: zh }),
+    desc ? h('p', { text: desc }) : null
+  );
+}
+
+function renderHighlights() {
+  const root = document.getElementById('highlightsRoot');
+  root.appendChild(sectionHead('Highlights', '亮点成果', '用数字说话，快速了解我的关键成绩'));
+  const grid = h('div', { class: 'highlight-grid' });
+  resume.highlights.forEach((s, i) => {
+    grid.appendChild(h('div', { class: 'stat-card reveal', style: 'transition-delay:' + (i * 60) + 'ms' },
+      h('div', { class: 'stat-num', text: s.num }),
+      h('div', { class: 'stat-label', text: s.label }),
+      h('div', { class: 'stat-sub', text: s.sub })
+    ));
+  });
+  root.appendChild(grid);
+}
+
+function setupTabs(tablist, onActivate) {
+  const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+  const activate = (idx) => {
+    tabs.forEach((t, i) => {
+      const active = i === idx;
+      t.setAttribute('aria-selected', String(active));
+      t.tabIndex = active ? 0 : -1;
+    });
+    onActivate && onActivate(idx);
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activate(i));
+    t.addEventListener('keydown', (e) => {
+      let idx = null;
+      if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') idx = 0;
+      else if (e.key === 'End') idx = tabs.length - 1;
+      if (idx !== null) { e.preventDefault(); activate(idx); tabs[idx].focus(); }
+    });
+  });
+  activate(0);
+}
+
+function renderExperience() {
+  const root = document.getElementById('experienceRoot');
+  root.appendChild(sectionHead('Experience', '经历', '校园组织 + AI 实践，技术与统筹并重'));
+
+  const tabs = resume.experience.map(e => e.tab);
+  const tablist = h('div', { class: 'tablist no-print', role: 'tablist', 'aria-label': '经历分类' });
+  tabs.forEach((t, i) => {
+    tablist.appendChild(h('button', { class: 'tab', role: 'tab', id: 'exp-tab-' + i, 'aria-selected': 'false', tabindex: i === 0 ? '0' : '-1', 'aria-controls': 'exp-panel-' + i, text: t }));
+  });
+  root.appendChild(tablist);
+
+  const panelsWrap = h('div');
+  resume.experience.forEach((group, gi) => {
+    const panel = h('div', { class: 'tabpanel', role: 'tabpanel', id: 'exp-panel-' + gi, 'aria-labelledby': 'exp-tab-' + gi, hidden: true });
+    const timeline = h('div', { class: 'timeline' });
+    group.items.forEach(item => {
+      const card = h('article', { class: 'exp-card' },
+        h('div', { class: 'exp-top' },
+          h('span', { class: 'exp-tag', text: item.tag }),
+          h('span', { class: 'exp-role', text: item.role }),
+          h('span', { class: 'exp-org', text: item.org }),
+          h('span', { class: 'exp-period' }, iconEl('calendar', 13), ' ', item.period)
+        ),
+        h('ul', { class: 'exp-bullets' }, ...item.bullets.map(b => h('li', { text: b })))
+      );
+      timeline.appendChild(h('div', { class: 'exp-item' }, h('span', { class: 'exp-dot' }), card));
+    });
+    panel.appendChild(timeline);
+    panelsWrap.appendChild(panel);
+  });
+  root.appendChild(panelsWrap);
+
+  setupTabs(tablist, (idx) => {
+    Array.from(panelsWrap.querySelectorAll('.tabpanel')).forEach((p, i) => { p.hidden = i !== idx; });
+  });
+}
+
+function renderProjects() {
+  const root = document.getElementById('projectsRoot');
+  root.appendChild(sectionHead('Projects', '项目经历', '独立完成、可量化产出的实践项目'));
+
+  const cats = ['全部', ...Array.from(new Set(resume.projects.map(p => p.category)))];
+  const tablist = h('div', { class: 'tablist no-print', role: 'tablist', 'aria-label': '项目分类' });
+  cats.forEach((c, i) => {
+    tablist.appendChild(h('button', { class: 'tab', role: 'tab', 'aria-selected': 'false', tabindex: i === 0 ? '0' : '-1', text: c }));
+  });
+  root.appendChild(tablist);
+
+  const grid = h('div', { class: 'project-grid' });
+  resume.projects.forEach(p => {
+    const card = h('article', { class: 'project-card', 'data-cat': p.category },
+      h('div', { class: 'project-head' },
+        h('span', { class: 'project-title', text: p.title }),
+        h('span', { class: 'project-cat', text: p.category })
+      ),
+      h('div', { class: 'project-stack' }, ...p.stack.map(s => h('span', { class: 'stack-tag', text: s }))),
+      h('ul', { class: 'project-points' }, ...p.points.map(pt => h('li', { text: pt }))),
+      p.link ? h('a', { class: 'project-link', href: p.link, target: '_blank', rel: 'noopener' }, iconEl('link', 14), ' 查看项目') : null
+    );
+    grid.appendChild(card);
+  });
+  root.appendChild(grid);
+
+  setupTabs(tablist, (idx) => {
+    const cat = cats[idx];
+    Array.from(grid.querySelectorAll('.project-card')).forEach(c => {
+      c.hidden = cat === '全部' ? false : (c.dataset.cat !== cat);
+    });
+  });
+}
+
+function renderSkills() {
+  const root = document.getElementById('skillsRoot');
+  root.appendChild(sectionHead('Skills', '技能矩阵', '语言 · AI · 办公 · 数据 四维能力'));
+
+  const grid = h('div', { class: 'skill-grid' });
+  resume.skills.forEach(group => {
+    const card = h('article', { class: 'skill-card reveal' },
+      h('div', { class: 'skill-group' }, iconEl(group.icon, 20), h('h3', { text: group.group }))
+    );
+    group.items.forEach(item => {
+      const lv = item.level;
+      card.appendChild(h('div', { class: 'skill-row' },
+        h('div', { class: 'skill-row-top' },
+          h('span', { text: item.name }),
+          h('span', { class: 'lv', text: lv + '%' })
+        ),
+        h('div', { class: 'bar' }, h('span', { 'data-lv': lv }))
+      ));
+    });
+    grid.appendChild(card);
+  });
+  root.appendChild(grid);
+}
+
+function renderEducation() {
+  const root = document.getElementById('educationRoot');
+  root.appendChild(sectionHead('Education', '教育与证书', ''));
+
+  const grid = h('div', { class: 'edu-grid' });
+
+  const edu = h('div', { class: 'edu-card reveal' },
+    h('div', { class: 'edu-school' },
+      iconEl('graduation', 24),
+      h('div', null,
+        h('h3', { text: resume.education.school }),
+        h('div', { class: 'sub', text: resume.education.major + ' · ' + resume.education.period })
+      )
+    ),
+    h('ul', { class: 'edu-list' }, ...resume.education.notes.map(n => h('li', { text: n })))
+  );
+
+  const cert = h('div', { class: 'cert-card reveal' },
+    h('h3', null, iconEl('award', 20), '获奖与证书'),
+    h('div', null, ...resume.certificates.map(c =>
+      h('div', { class: 'cert-item' },
+        iconEl('check', 16),
+        h('div', null, h('div', { class: 't', text: c.t }), h('div', { class: 'd', text: c.d }))
+      )
+    )),
+    resume.certNote ? h('div', { class: 'muted-note', text: resume.certNote }) : null
+  );
+
+  grid.appendChild(edu);
+  grid.appendChild(cert);
+  root.appendChild(grid);
+}
+
+function renderFooter() {
+  const root = document.getElementById('footerRoot');
+  const now = new Date();
+  const dateStr = now.getFullYear() + ' 年 ' + (now.getMonth() + 1) + ' 月';
+  root.appendChild(h('span', null, '© ', now.getFullYear(), ' ', h('b', { text: resume.name }), ' · 保留所有权利'));
+  root.appendChild(h('span', null, '最近更新：', dateStr));
+}
+
+/* ============ 交互 ============ */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+    }
+    toast('邮箱已复制：' + text);
+  } catch (e) {
+    toast('复制失败，请手动复制');
+  }
+}
+
+function initChrome() {
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('backTop');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const themeToggle = document.getElementById('themeToggle');
+
+  themeToggle.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS[document.documentElement.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'] + '</svg>';
+
+  themeToggle.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    themeToggle.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS[next === 'dark' ? 'sun' : 'moon'] + '</svg>';
+  });
+
+  menuToggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS.menu + '</svg>';
+  menuToggle.addEventListener('click', () => {
+    const open = mobileMenu.hidden;
+    mobileMenu.hidden = !open;
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + (open ? ICONS.close : ICONS.menu) + '</svg>';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.hidden = true;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS.menu + '</svg>';
+  }));
+
+  backTop.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' + ICONS.arrowUp + '</svg>';
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  const heroPrint = document.getElementById('heroPrint');
+  if (heroPrint) heroPrint.addEventListener('click', () => window.print());
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+    backTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+}
+
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const bars = document.querySelectorAll('.bar>span[data-lv]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(e => e.classList.add('in'));
+    bars.forEach(b => b.style.width = b.dataset.lv + '%');
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        en.target.querySelectorAll('.bar>span[data-lv]').forEach(x => x.style.width = x.dataset.lv + '%');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(e => io.observe(e));
+  bars.forEach(b => io.observe(b.closest('.reveal') || b));
+}
+
+/* ============ 启动 ============ */
+renderHero();
+renderHighlights();
+renderExperience();
+renderProjects();
+renderSkills();
+renderEducation();
+renderFooter();
+initChrome();
+initReveal();
+
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-copy]');
+  if (t) copyText(t.getAttribute('data-copy'));
+});
+</script>
+</body>
+</html>
